@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Face Wars</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Chakra+Petch:wght@500;700&family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@18.3.1",
+          "react/jsx-runtime": "https://esm.sh/react@18.3.1/jsx-runtime",
+          "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
+          "@mediapipe/tasks-vision": "https://esm.sh/@mediapipe/tasks-vision@0.10.14",
+          "qrcode": "https://esm.sh/qrcode@1.5.3"
+        }
+      }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.24.7/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module">
+      import { createElement } from "react";
+      import { createRoot } from "react-dom/client";
+      try {
+        const src = await (await fetch("app.jsx?" + Date.now())).text();
+        const { code } = Babel.transform(src, {
+          filename: "app.jsx",
+          presets: [["react", { runtime: "automatic" }]],
+        });
+        const mod = await import(
+          URL.createObjectURL(new Blob([code], { type: "text/javascript" }))
+        );
+        createRoot(document.getElementById("root")).render(
+          createElement(mod.default),
+        );
+      } catch (e) {
+        document.getElementById("root").innerHTML =
+          '<pre style="color:#ffc2c2;padding:16px;white-space:pre-wrap">Could not load app.jsx: ' +
+          e.message +
+          "\nOpen this page through Live Server / a local server (not file://) and keep app.jsx and style.css in the same folder.</pre>";
+        console.error(e);
+      }
+    </script>
+  </body>
+</html>

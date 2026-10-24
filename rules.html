@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>FaceOff Arena – Rules</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Chakra+Petch:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --c: #5fe9ff;
+        --p: #ff4fa3;
+        --g: #ffe45e;
+        --bg: #050318;
+        color-scheme: dark;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+      body {
+        background: #050318;
+        color: #fff;
+        font-family: "Chakra Petch", system-ui, sans-serif;
+        line-height: 1.55;
+        padding: 24px 16px 60px;
+      }
+      main {
+        max-width: 860px;
+        margin: 0 auto;
+      }
+      h1 {
+        font:
+          400 clamp(42px, 9vw, 84px)/1 Anton,
+          Impact,
+          sans-serif;
+        text-align: center;
+        letter-spacing: 0.02em;
+        text-shadow:
+          0 0 18px var(--c),
+          4px 4px 0 var(--p);
+      }
+      .sub {
+        text-align: center;
+        color: var(--c);
+        margin: 8px 0 34px;
+        font-size: 1.05rem;
+      }
+      h2 {
+        font:
+          400 clamp(24px, 5vw, 34px) Anton,
+          Impact,
+          sans-serif;
+        color: var(--p);
+        text-shadow: 0 0 12px var(--p);
+        margin: 38px 0 14px;
+        letter-spacing: 0.03em;
+      }
+      .card {
+        background: #0b0a2acc;
+        border: 2px solid #5fe9ff55;
+        border-radius: 14px;
+        padding: 18px 20px;
+        box-shadow: 0 0 18px #5fe9ff22;
+      }
+      .moves {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        gap: 14px;
+      }
+      .mv {
+        background: #0b0a2acc;
+        border: 2px solid var(--c);
+        border-radius: 14px;
+        padding: 16px;
+        text-align: center;
+        box-shadow: 0 0 16px #5fe9ff33;
+      }
+      .mv .e {
+        font-size: 2.6rem;
+      }
+      .mv h3 {
+        font:
+          400 1.5rem Anton,
+          Impact,
+          sans-serif;
+        color: var(--g);
+        margin: 4px 0;
+      }
+      .mv .how {
+        font-weight: 700;
+        color: var(--c);
+      }
+      .mv p {
+        font-size: 0.92rem;
+        opacity: 0.9;
+        margin-top: 6px;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      li {
+        margin: 7px 0;
+      }
+      li b {
+        color: var(--g);
+      }
+      ol {
+        padding-left: 22px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.95rem;
+      }
+      th,
+      td {
+        padding: 9px 10px;
+        border-bottom: 1px solid #ffffff22;
+        text-align: left;
+      }
+      th {
+        color: var(--c);
+        font-weight: 700;
+      }
+      .tip {
+        border-left: 4px solid var(--g);
+        padding: 10px 14px;
+        background: #ffe45e14;
+        border-radius: 0 10px 10px 0;
+        margin: 10px 0;
+      }
+      footer {
+        text-align: center;
+        margin-top: 44px;
+        opacity: 0.7;
+      }
+      .btn {
+        display: inline-block;
+        margin-top: 14px;
+        padding: 12px 34px;
+        font:
+          400 1.5rem Anton,
+          Impact,
+          sans-serif;
+        letter-spacing: 0.05em;
+        color: var(--c);
+        border: 3px solid var(--c);
+        border-radius: 14px;
+        text-decoration: none;
+        box-shadow: 0 0 18px #5fe9ff88;
+      }
+      .btn:hover {
+        background: #13124a;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>FaceOff Arena</h1>
+      <p class="sub">
+        How to play: fight with your face, no controller needed.
+      </p>
+
+      <h2>The Goal</h2>
+      <div class="card">
+        Two players duel in front of one webcam. Drain your opponent's health to
+        zero for a <b>K.O.</b>, or have more health left when the 30-second
+        round timer ends. Win <b>two out of three rounds</b> to win the match.
+      </div>
+
+      <h2>Your Moves</h2>
+      <div class="moves">
+        <div class="mv">
+          <div class="e">👊</div>
+          <h3>Punch</h3>
+          <div class="how">Raise your eyebrows</div>
+          <p>A quick attack. Short cooldown between punches.</p>
+        </div>
+        <div class="mv">
+          <div class="e">🛡️</div>
+          <h3>Shield</h3>
+          <div class="how">Pout (lips forward)</div>
+          <p>Blocks incoming hits while your shield bar lasts.</p>
+        </div>
+        <div class="mv">
+          <div class="e">🔥</div>
+          <h3>Fireball</h3>
+          <div class="how">Open your mouth wide</div>
+          <p>A powerful ranged attack. Needs the SPECIAL bar to be full.</p>
+        </div>
+        <div class="mv">
+          <div class="e">💨</div>
+          <h3>Dodge</h3>
+          <div class="how">Tilt your head</div>
+          <p>Slip past an incoming hit or fireball completely.</p>
+        </div>
+      </div>
+
+      <h2>Bars and Damage</h2>
+      <div class="card">
+        <table>
+          <tr>
+            <th>Item</th>
+            <th>How it works</th>
+          </tr>
+          <tr>
+            <td><b>Health</b></td>
+            <td>
+              Both players start each round at 100. A punch does 9 damage, a
+              fireball does 25.
+            </td>
+          </tr>
+          <tr>
+            <td><b>Shield bar</b></td>
+            <td>
+              Drains while you hold your shield and absorbs hits. When it hits
+              empty your shield locks until it has recharged a little, so don't
+              hold it forever.
+            </td>
+          </tr>
+          <tr>
+            <td><b>SPECIAL bar</b></td>
+            <td>
+              Fills over time on its own. When it says <b>SPECIAL READY</b>,
+              open your mouth to fire. Using it resets the bar.
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <h2>Pro Moves</h2>
+      <div class="card">
+        <ul>
+          <li>
+            <b>Perfect Block ✨:</b> raise your shield (pout) just as a hit
+            lands. You take no shield damage, the shield bar is refunded, and
+            your opponent gets hit with a counter for 10 damage.
+          </li>
+          <li>
+            <b>Combo 🔥:</b> land hits back to back (within about 1.5 seconds).
+            From the third hit onward each one deals bonus damage, up to +9. The
+            combo counter appears on screen.
+          </li>
+          <li>
+            <b>Rage Mode 😡:</b> when your health drops below 30, your hits deal
+            30% more damage and your SPECIAL bar charges almost twice as fast. A
+            comeback is always possible.
+          </li>
+          <li>
+            <b>Changing arenas 🌈:</b> each round has a different colour theme,
+            so every round feels fresh (supported in Chrome, Edge and Firefox).
+          </li>
+        </ul>
+      </div>
+
+      <h2>Match Rules</h2>
+      <div class="card">
+        <ul>
+          <li><b>Rounds:</b> best of three, 30 seconds each.</li>
+          <li><b>K.O.:</b> health reaching zero ends the round at once.</li>
+          <li>
+            <b>Time up:</b> whoever has more health wins the round. Equal health
+            is a draw.
+          </li>
+          <li>
+            <b>Positions:</b> Player 1 stands on the <b>left</b>, Player 2 on
+            the <b>right</b>.
+          </li>
+          <li>
+            <b>Solo play:</b> choose <b>Mode: vs Bot</b> on the setup screen.
+            The Bot plays as Player 2.
+          </li>
+          <li>
+            <b>After the match:</b> scan the QR code on the winner screen to
+            download your battle photo, or use Save card.
+          </li>
+        </ul>
+      </div>
+
+      <h2>Before You Fight</h2>
+      <div class="card">
+        <ol>
+          <li>
+            Open the game at <b>localhost:3000</b> and allow camera access.
+          </li>
+          <li>
+            Stand side by side and make sure both faces show up on the setup
+            screen.
+          </li>
+          <li>
+            Press <b>Calibrate</b> and keep a relaxed, neutral face for two
+            seconds.
+          </li>
+          <li>Practice each move and watch the icons light up.</li>
+          <li>Press <b>Enter arena</b> and have fun.</li>
+        </ol>
+        <div class="tip">
+          Good lighting makes face tracking much more accurate. Face the camera
+          and keep your whole face in view.
+        </div>
+      </div>
+
+      <h2>Tips</h2>
+      <div class="card">
+        <ul>
+          <li>Save your shield for fireballs, since they hurt the most.</li>
+          <li>
+            Mouth wide open is a fireball, while a small pout is a shield. Keep
+            them clearly different.
+          </li>
+          <li>Don't spam punches. Use the gaps to shield or dodge.</li>
+          <li>
+            Learn the timing of the Perfect Block, because it turns defence into
+            offence.
+          </li>
+          <li>
+            If a move won't trigger, raise the <b>Sensitivity</b> slider or
+            calibrate again.
+          </li>
+        </ul>
+      </div>
+
+      <footer>
+        <a class="btn" href="index.html">Back to game</a>
+        <p style="margin-top: 18px">
+          FaceOff Arena. Made with 🩵.
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>
